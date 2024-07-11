@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:testapp/presentation/styles/font_type.dart';
 import 'package:testapp/presentation/styles/theme_color.dart';
 
 
@@ -17,19 +16,7 @@ class AppTheme {
   static const Color lightTextColor = Colors.black;
   static const Color darkTextColor = Colors.white;
 
-  static TextTheme get textTheme => const TextTheme(
-      headlineLarge: TextStyle(fontFamily: FontType.InterBold, fontSize: 24),
-      headlineMedium:
-          TextStyle(fontFamily: FontType.InterSemiBold, fontSize: 20),
-      headlineSmall:
-          TextStyle(fontFamily: FontType.InterSemiBold, fontSize: 18),
-      displayLarge: TextStyle(fontFamily: FontType.InterBold, fontSize: 18),
-      bodyMedium: TextStyle(fontFamily: FontType.InterRegular, fontSize: 16),
-      titleLarge: TextStyle(fontFamily: FontType.InterSemiBold, fontSize: 16),
-      titleMedium: TextStyle(fontFamily: FontType.InterSemiBold, fontSize: 14),
-      labelLarge: TextStyle(fontFamily: FontType.InterBold, fontSize: 14),
-      labelMedium: TextStyle(fontFamily: FontType.InterMedium, fontSize: 13),
-      labelSmall: TextStyle(fontFamily: FontType.InterMedium, fontSize: 11));
+
 
   static ElevatedButtonThemeData get elevatedButtonThemeData =>
       ElevatedButtonThemeData(

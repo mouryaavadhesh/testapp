@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:testapp/presentation/styles/font_type.dart';
 import 'package:testapp/presentation/styles/theme_color.dart';
 import 'package:testapp/presentation/widgets/custom_text.dart';
 
@@ -42,7 +41,6 @@ class ButtonEnableDisable {
             textAlign: TextAlign.center,
             color: Colors.white,
             fontWeight: FontWeight.w500,
-            fontFamily: fontType ?? FontType.InterMedium,
             fontStyle: FontStyle.normal,
             fontSize: fontSize ?? 14,
           ),
@@ -52,7 +50,7 @@ class ButtonEnableDisable {
   static Widget customWidth(String text, bool colorChange, double width,
           {Function()? onPressed}) =>
       Container(
-        margin: EdgeInsets.only(bottom: 20, left: 20, right: 20),
+        margin: const EdgeInsets.only(bottom: 20, left: 20, right: 20),
         height: 48,
         width: width,
         child: ElevatedButton(
@@ -78,7 +76,6 @@ class ButtonEnableDisable {
             textAlign: TextAlign.center,
             color: Colors.white,
             fontWeight: FontWeight.w500,
-            fontFamily: FontType.InterMedium,
             fontStyle: FontStyle.normal,
             fontSize: 14.0,
           ),
@@ -87,7 +84,7 @@ class ButtonEnableDisable {
 
   static Widget withOutMargin(String text, bool colorChange,
           {Function()? onPressed, String? fontType}) =>
-      Container(
+      SizedBox(
         height: 48,
         width: double.infinity,
         child: ElevatedButton(
@@ -113,7 +110,6 @@ class ButtonEnableDisable {
               textAlign: TextAlign.center,
               color: Colors.white,
               fontWeight: FontWeight.w500,
-              fontFamily: fontType ?? FontType.InterMedium,
               fontStyle: FontStyle.normal,
               fontSize: 14.0),
         ),
@@ -148,7 +144,6 @@ class ButtonEnableDisable {
             textAlign: TextAlign.center,
             color: ThemeColor.blue_button_color,
             fontWeight: FontWeight.w500,
-            fontFamily: FontType.InterMedium,
             fontStyle: FontStyle.normal,
             fontSize: fontSize ?? 14,
           ),
@@ -157,7 +152,7 @@ class ButtonEnableDisable {
 }
 
 class CustomiseButton extends StatelessWidget {
-  CustomiseButton(
+  const CustomiseButton(
       {Key? key,
       required this.text,
       required this.margin,
@@ -193,9 +188,6 @@ class CustomiseButton extends StatelessWidget {
           ),
           backgroundColor: MaterialStateProperty.resolveWith<Color>(
               (Set<MaterialState> states) {
-            // if (states.contains(MaterialState.disabled)) {
-            //   return ThemeColor.blueColorLight;
-            // }
             return isButtonColourEnable
                 ? ThemeColor.blue_button_color
                 : ThemeColor.blueColorLight;
@@ -207,7 +199,6 @@ class CustomiseButton extends StatelessWidget {
           textAlign: TextAlign.center,
           color: Colors.white,
           fontWeight: FontWeight.w500,
-          fontFamily: FontType.InterMedium,
           fontStyle: FontStyle.normal,
           fontSize: 14.0,
         ),

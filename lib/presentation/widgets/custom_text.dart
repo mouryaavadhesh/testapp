@@ -16,8 +16,8 @@ class CustomText extends StatelessWidget {
   final FontStyle? fontStyle;
   final Color? decorationColor;
 
-  CustomText(
-      {required this.text,
+  const CustomText(
+      {super.key, required this.text,
       this.color,
       this.fontFamily,
       this.height,

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:testapp/presentation/styles/theme_color.dart';
 
-
 class Dialogs {
   static Future<void> showLoadingDialog(BuildContext context) async {
     return showDialog<void>(
@@ -12,19 +11,18 @@ class Dialogs {
           return PopScope(
             canPop: true,
             onPopInvoked: (value) {
-               Future.value(true);
+              Future.value(true);
             },
             child: Material(
                 color: Colors.transparent,
-                child: Container(
-                    child: Center(
+                child: Center(
                   child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         const CircularProgressIndicator(
                           backgroundColor: ThemeColor.blue_button_color,
-                      valueColor: AlwaysStoppedAnimation<Color>(
+                          valueColor: AlwaysStoppedAnimation<Color>(
                               ThemeColor.blue_button_color),
                           strokeWidth: 3,
                         ),
@@ -40,7 +38,7 @@ class Dialogs {
                           ),
                         )
                       ]),
-                ))),
+                )),
           );
         });
   }

@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:testapp/presentation/styles/font_type.dart';
 import 'package:testapp/presentation/widgets/custom_text.dart';
 
 
-class MyStallText {
+class MyText {
   static Widget text(String text, double size, Color color, String font,
       {int maxLines = 1}) {
     return CustomText(
@@ -28,7 +27,6 @@ class MyStallText {
     return CustomText(
       color: color,
       text: text,
-      fontFamily: FontType.InterRegular,
       maxLines: maxLines,
       textOverflow: textOverFlow,
       fontSize: fontSize.toDouble(),
@@ -50,7 +48,6 @@ class MyStallText {
     return CustomText(
       color: color,
       text: text,
-      fontFamily: FontType.InterBold,
       maxLines: maxLines,
       textOverflow: textOverFlow,
       fontSize: fontSize.toDouble(),
@@ -73,7 +70,6 @@ class MyStallText {
     return CustomText(
       color: color,
       text: text,
-      fontFamily: FontType.InterMedium,
       maxLines: maxLines,
       textOverflow: textOverFlow,
       fontSize: fontSize.toDouble(),
@@ -116,7 +112,6 @@ class MyStallText {
     return CustomText(
       color: color,
       text: text,
-      fontFamily: FontType.InterLight,
       maxLines: maxLines,
       textOverflow: textOverFlow,
       fontSize: fontSize.toDouble(),

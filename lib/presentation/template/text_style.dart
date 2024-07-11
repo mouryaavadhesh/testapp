@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:testapp/presentation/styles/font_type.dart';
 import 'package:testapp/presentation/styles/theme_color.dart';
 
 
 
-class MyStallTextStyle {
+class MyTextStyle {
   static TextStyle text(String text, double size, Color color, String font,
       {int maxLines = 1}) {
     return TextStyle(
@@ -19,7 +18,7 @@ class MyStallTextStyle {
   }) {
     return TextStyle(
       color: Colors.red,
-      fontFamily: FontType.InterRegular,
+      
       fontSize: 12,
       fontStyle: fontStyle,
     );
@@ -29,7 +28,7 @@ class MyStallTextStyle {
     FontStyle fontStyle = FontStyle.normal,
   }) {
     return TextStyle(
-      fontFamily: FontType.InterRegular,
+      
       fontSize: 12,
       fontStyle: fontStyle,
     );
@@ -41,7 +40,7 @@ class MyStallTextStyle {
   }) {
     return TextStyle(
       color: color,
-      fontFamily: FontType.InterRegular,
+
       fontSize: 14,
       fontStyle: fontStyle,
     );
@@ -54,7 +53,7 @@ class MyStallTextStyle {
   }) {
     return TextStyle(
       color: color,
-      fontFamily: FontType.InterRegular,
+      fontWeight: FontWeight.w400,
       fontSize: fontSize.toDouble(),
       fontStyle: fontStyle,
     );
@@ -67,7 +66,7 @@ class MyStallTextStyle {
   }) {
     return TextStyle(
       color: color,
-      fontFamily: FontType.InterMedium,
+      fontWeight: FontWeight.w500,
       fontSize: fontSize.toDouble(),
       fontStyle: fontStyle,
     );
@@ -81,7 +80,7 @@ class MyStallTextStyle {
   }) {
     return TextStyle(
       color: color,
-      fontFamily: FontType.InterSemiBold,
+      fontWeight: FontWeight.w600,
       fontSize: fontSize.toDouble(),
       fontStyle: fontStyle,
     );
@@ -94,7 +93,7 @@ class MyStallTextStyle {
   }) {
     return TextStyle(
       color: color,
-      fontFamily: FontType.InterBold,
+      fontWeight: FontWeight.w700,
       fontSize: fontSize.toDouble(),
       fontStyle: fontStyle,
     );
@@ -105,7 +104,7 @@ class MyStallTextStyle {
   }) {
     return TextStyle(
       color: ThemeColor.black1,
-      fontFamily: FontType.InterMedium,
+      fontWeight: FontWeight.w600,
       fontSize: 14,
       fontStyle: fontStyle,
     );

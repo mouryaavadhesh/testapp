@@ -366,7 +366,7 @@ class ReusableWidget {
             Container(
               alignment: Alignment.center,
               margin: EdgeInsets.only(left: clicked ? 20 : 0),
-              child:MyStallText.textInterSemiBold(text:   text, fontSize: 14),
+              child:MyText.textInterSemiBold(text:   text, fontSize: 14),
             ),
           ],
         ));
@@ -409,7 +409,7 @@ class ReusableWidget {
             Container(
               alignment: Alignment.center,
               margin: EdgeInsets.only(left: clicked ? 20 : 0),
-              child:MyStallText.textInterSemiBold(text:   text, fontSize: 14),
+              child:MyText.textInterSemiBold(text:   text, fontSize: 14),
             ),
           ],
         ));
@@ -466,7 +466,7 @@ class ReusableWidget {
               ),
               borderRadius: const BorderRadius.all(Radius.circular(10.0)),
               ),
-          child: MyStallText.textInterMedium(text: text, fontSize: 14),
+          child: MyText.textInterMedium(text: text, fontSize: 14),
         ),
       );
 }

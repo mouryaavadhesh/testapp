@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:testapp/presentation/styles/font_type.dart';
 import 'package:testapp/presentation/styles/theme_color.dart';
 
 
@@ -41,7 +40,6 @@ abstract class TextStyling1 {
         textStyle: const TextStyle(
             letterSpacing: .5,
             fontSize: 14,
-            fontFamily: FontType.InterBold,
             fontStyle: FontStyle.normal,
             fontWeight: FontWeight.w700),
       );
