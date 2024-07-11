@@ -7,6 +7,7 @@ import 'package:testapp/data/api/api_urls.dart';
 import 'package:testapp/data/utils/constant/constants.dart';
 import 'package:testapp/data/utils/utils.dart';
 import 'package:testapp/domain/network/dio_utils.dart';
+import 'package:testapp/presentation/widgets/reusable_widget.dart';
 
 class DioClient {
   late Dio dio;
