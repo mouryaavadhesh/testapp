@@ -10,7 +10,8 @@ class MovieSearch extends StatefulWidget {
   _MovieSearchState createState() => _MovieSearchState();
 }
 
-class _MovieSearchState extends State<MovieSearch> with TickerProviderStateMixin {
+class _MovieSearchState extends State<MovieSearch>
+    with TickerProviderStateMixin {
   // Dummy Product Data Here
   late Animation animation;
   late AnimationController animationController;
@@ -33,7 +34,8 @@ class _MovieSearchState extends State<MovieSearch> with TickerProviderStateMixin
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (BuildContext context) => MovieSearchCubit(MenuInitialState(context)),
+      create: (BuildContext context) =>
+          MovieSearchCubit(MenuInitialState(context)),
       child: BlocBuilder<MovieSearchCubit, MovieSearchState>(
         builder: (context, state) {
           Widget screenView = Container();
@@ -42,26 +44,21 @@ class _MovieSearchState extends State<MovieSearch> with TickerProviderStateMixin
             screenView = ReusableWidget.animationLayout(
                 animation, MediaQuery.of(context).size.width);
           } else if (state is LoadedState) {
-            screenView = _buildMenuList(state);
+            screenView = _buildMovieList(state);
           } else {
-            screenView = Card(
-              margin: const EdgeInsets.symmetric(horizontal: 16),
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10.0)),
-              elevation: 4.0,
-              child: Container(
-                padding: const EdgeInsets.only(
-                    left: 20, right: 20, top: 10, bottom: 19),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    MyText.textInterBold(
-                        text: "Search Movie",
-                        fontSize: 14)
-                  ],
+            screenView = Container(
+              width: double.infinity,
+              margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+              padding: const EdgeInsets.only(
+                  left: 20, right: 20, top: 20, bottom: 20),
+              decoration: BoxDecoration(
+                border: Border.all(color: Colors.grey),
+                borderRadius: const BorderRadius.only(
+                  topLeft: Radius.circular(20.0),
+                  bottomRight: Radius.circular(5.0),
                 ),
               ),
+              child: MyText.textInterBold(text: "Search Movie", fontSize: 14),
             );
           }
           return SafeArea(
@@ -72,16 +69,12 @@ class _MovieSearchState extends State<MovieSearch> with TickerProviderStateMixin
                     elevation: 4,
                     leading: IconButton(
                       icon: const Icon(Icons.arrow_back),
-                      onPressed: () {
-
-                      },
+                      onPressed: () {},
                     ),
                   ),
-
                   body: Stack(
                     children: [
                       screenView,
-
                     ],
                   )));
         },
@@ -89,14 +82,13 @@ class _MovieSearchState extends State<MovieSearch> with TickerProviderStateMixin
     );
   }
 
-  Widget _buildMenuList(LoadedState state) => ListView.builder(
+  Widget _buildMovieList(LoadedState state) => ListView.builder(
         itemCount: state.movieData.length,
         //  respondedData3['data'].length,
         shrinkWrap: true,
         scrollDirection: Axis.vertical,
         physics: const ScrollPhysics(),
         itemBuilder: (context, index) => Card(
-
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
           elevation: 4.0,
@@ -104,10 +96,11 @@ class _MovieSearchState extends State<MovieSearch> with TickerProviderStateMixin
           child: Container(
             height: 150,
             padding: const EdgeInsets.all(10.0),
-            child: const Column(
+            child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-
+                MyText.textInterBold(
+                    text: state.movieData[index].locations, fontSize: 14)
               ],
             ),
           ),

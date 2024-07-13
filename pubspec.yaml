@@ -43,7 +43,6 @@ dependencies:
   equatable:
   flutter_bloc:
   fluttertoast: ^8.2.4
-  google_fonts:
 
 dev_dependencies:
   flutter_test:

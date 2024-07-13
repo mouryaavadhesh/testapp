@@ -16,7 +16,7 @@ class LoadingState extends MovieSearchState {}
 class ErrorState extends MovieSearchState {}
 
 class LoadedState extends MovieSearchState {
-  final List<Movie> movieData;
+  final List<MovieResponse> movieData;
 
   LoadedState({required this.movieData});
 

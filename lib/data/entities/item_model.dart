@@ -1,4 +1,4 @@
-class Movie {
+class MovieResponse {
   final String title;
   final String releaseYear;
   final String locations;
@@ -12,7 +12,7 @@ class Movie {
   final String? computedRegionAjp5B2md;
   final String? computedRegion26crCadq;
 
-  Movie({
+  MovieResponse({
     required this.title,
     required this.releaseYear,
     required this.locations,
@@ -28,21 +28,21 @@ class Movie {
     this.computedRegion26crCadq,
   });
 
-  factory Movie.fromJson(Map<String, dynamic> json) {
-    return Movie(
-      title: json['title'] as String,
-      releaseYear: json['release_year'] as String,
-      locations: json['locations'] as String,
-      productionCompany: json['production_company'] as String,
-      distributor: json['distributor'] as String,
-      director: json['director'] as String,
-      writer: json['writer'] as String,
-      actor1: json['actor_1'] as String,
-      actor2: json['actor_2'] as String,
-      actor3: json['actor_3'] as String,
-      computedRegion6qbpSg9q: json[':@computed_region_6qbp_sg9q'] as String?,
-      computedRegionAjp5B2md: json[':@computed_region_ajp5_b2md'] as String?,
-      computedRegion26crCadq: json[':@computed_region_26cr_cadq'] as String?,
+  factory MovieResponse.fromJson(Map<String, dynamic> json) {
+    return MovieResponse(
+      title: json['title']  ?? '',
+      releaseYear: json['release_year'] ?? '',
+      locations: json['locations'] ?? '',
+      productionCompany: json['production_company'] ?? '',
+      distributor: json['distributor'] ?? '',
+      director: json['director'] ?? '',
+      writer: json['writer'] ?? '',
+      actor1: json['actor_1'] ?? '',
+      actor2: json['actor_2'] ?? '',
+      actor3: json['actor_3'] ?? '',
+      computedRegion6qbpSg9q: json[':@computed_region_6qbp_sg9q'],
+      computedRegionAjp5B2md: json[':@computed_region_ajp5_b2md'],
+      computedRegion26crCadq: json[':@computed_region_26cr_cadq'],
     );
   }
 }
