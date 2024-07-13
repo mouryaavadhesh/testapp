@@ -15,7 +15,7 @@ class MyText {
     );
   }
 
-  static CustomText textInterRegular(
+  static CustomText textRegular(
       {required String text,
       required int fontSize,
       Color? color,
@@ -30,13 +30,14 @@ class MyText {
       maxLines: maxLines,
       textOverflow: textOverFlow,
       fontSize: fontSize.toDouble(),
+      fontWeight: FontWeight.w400,
       textAlign: textAlign,
       textDecoration: textDecoration,
       fontStyle: fontStyle,
     );
   }
 
-  static CustomText textInterSemiBold(
+  static CustomText textSemiBold(
       {required String text,
       required int fontSize,
       Color? color,
@@ -52,12 +53,13 @@ class MyText {
       textOverflow: textOverFlow,
       fontSize: fontSize.toDouble(),
       textAlign: textAlign,
+      fontWeight: FontWeight.w600,
       textDecoration: textDecoration,
       letterSpacing: letterSpacing,
     );
   }
 
-  static CustomText textInterMedium(
+  static CustomText textMedium(
       {required String text,
       required int fontSize,
       Color? color,
@@ -74,13 +76,14 @@ class MyText {
       textOverflow: textOverFlow,
       fontSize: fontSize.toDouble(),
       textAlign: textAlign,
+      fontWeight: FontWeight.w500,
       textDecoration: textDecoration,
       fontStyle: fontStyle,
       decorationColor: decorationColor ?? color,
     );
   }
 
-  static CustomText textInterBold(
+  static CustomText textBold(
       {required String text,
       required int fontSize,
       Color? color,
@@ -95,12 +98,13 @@ class MyText {
       textOverflow: textOverFlow,
       fontSize: fontSize.toDouble(),
       textAlign: textAlign,
+      fontWeight: FontWeight.w700,
       textDecoration: textDecoration,
       fontStyle: FontStyle.normal,
     );
   }
 
-  static CustomText textInterLight(
+  static CustomText textLight(
       {required String text,
       required int fontSize,
       Color? color,
@@ -115,6 +119,7 @@ class MyText {
       maxLines: maxLines,
       textOverflow: textOverFlow,
       fontSize: fontSize.toDouble(),
+      fontWeight: FontWeight.w300,
       textAlign: textAlign,
       textDecoration: textDecoration,
       fontStyle: fontStyle,

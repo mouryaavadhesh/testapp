@@ -58,13 +58,13 @@ class _MovieSearchState extends State<MovieSearch>
                   bottomRight: Radius.circular(5.0),
                 ),
               ),
-              child: MyText.textInterBold(text: "Search Movie", fontSize: 14),
+              child: MyText.textBold(text: "Search Movie", fontSize: 14),
             );
           }
           return SafeArea(
               child: Scaffold(
                   appBar: AppBar(
-                    title: MyText.textInterBold(
+                    title: MyText.textBold(
                         text: "Search Movie", fontSize: 16),
                     elevation: 4,
                     leading: IconButton(
@@ -94,13 +94,26 @@ class _MovieSearchState extends State<MovieSearch>
           elevation: 4.0,
           margin: const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
           child: Container(
-            height: 150,
             padding: const EdgeInsets.all(10.0),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                MyText.textInterBold(
-                    text: state.movieData[index].locations, fontSize: 14)
+                MyText.textRegular(
+                    text: state.movieData[index].productionCompany, fontSize: 14,maxLines: 2),
+                MyText.textRegular(
+                    text: state.movieData[index].distributor, fontSize: 14,maxLines: 2),
+                MyText.textRegular(
+                    text: state.movieData[index].director, fontSize: 14,maxLines: 2),
+                MyText.textRegular(
+                    text: state.movieData[index].actor1, fontSize: 14,maxLines: 2),
+                MyText.textRegular(
+                    text: state.movieData[index].actor2, fontSize: 14,maxLines: 2),
+                MyText.textRegular(
+                    text: state.movieData[index].actor3, fontSize: 14,maxLines: 2),
+                MyText.textRegular(
+                    text: state.movieData[index].locations, fontSize: 14,maxLines: 2),
+
               ],
             ),
           ),
