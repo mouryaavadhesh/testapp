@@ -14,7 +14,6 @@ class MovieSearch extends StatefulWidget {
 
 class _MovieSearchState extends State<MovieSearch>
     with TickerProviderStateMixin {
-  // Dummy Product Data Here
   late Animation animation;
   late AnimationController animationController;
 
@@ -50,19 +49,25 @@ class _MovieSearchState extends State<MovieSearch>
               slivers: <Widget>[
                 SliverList(
                   delegate: SliverChildBuilderDelegate(
-                    (BuildContext context, int index) => const Card(
-                      margin: EdgeInsets.only(
+                    (BuildContext context, int index) => Card(
+                      margin: const EdgeInsets.only(
                           top: 20, left: 10, right: 10, bottom: 10),
                       child: SizedBox(
                         height: 60,
                         child: Padding(
-                          padding: EdgeInsets.only(
+                          padding: const EdgeInsets.only(
                               left: Dimension.leftMarginScreen,
                               top: 5,
                               right: Dimension.leftMarginScreen,
                               bottom: 5),
                           child: TextField(
-                            decoration: InputDecoration(
+                            maxLines: 1,
+                            onChanged: (value) {
+                              context
+                                  .read<MovieSearchCubit>()
+                                  .searchMovie(value);
+                            },
+                            decoration: const InputDecoration(
                               border: OutlineInputBorder(
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(5.0)),
@@ -89,17 +94,16 @@ class _MovieSearchState extends State<MovieSearch>
                 ),
                 SliverList(
                   delegate: SliverChildBuilderDelegate(
-                        (BuildContext context, int index) =>
+                    (BuildContext context, int index) =>
                         _buildMovieList(state.movieData[index]),
                     childCount: state.movieData.length,
                   ),
                 )
               ],
-
             );
           } else {
             screenView = Container(
-              height:500,
+              height: 500,
               margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
               padding: const EdgeInsets.only(
                   left: 20, right: 20, top: 20, bottom: 20),
