@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:testapp/data/entities/item_model.dart';
+import 'package:testapp/data/utils/constant/constants.dart';
 import 'package:testapp/presentation/screen/movie_search_cubit.dart';
 import 'package:testapp/presentation/screen/movie_search_state.dart';
 import 'package:testapp/presentation/template/text.dart';
@@ -44,78 +46,106 @@ class _MovieSearchState extends State<MovieSearch>
             screenView = ReusableWidget.animationLayout(
                 animation, MediaQuery.of(context).size.width);
           } else if (state is LoadedState) {
-            screenView = _buildMovieList(state);
+            screenView = CustomScrollView(
+              slivers: <Widget>[
+                SliverList(
+                  delegate: SliverChildBuilderDelegate(
+                    (BuildContext context, int index) => const Card(
+                      margin: EdgeInsets.only(
+                          top: 20, left: 10, right: 10, bottom: 10),
+                      child: SizedBox(
+                        height: 60,
+                        child: Padding(
+                          padding: EdgeInsets.only(
+                              left: Dimension.leftMarginScreen,
+                              top: 5,
+                              right: Dimension.leftMarginScreen,
+                              bottom: 5),
+                          child: TextField(
+                            decoration: InputDecoration(
+                              border: OutlineInputBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(5.0)),
+                                borderSide: BorderSide(
+                                  width: 0,
+                                  style: BorderStyle.none,
+                                ),
+                              ),
+                              filled: false,
+                              suffixIcon: Icon(
+                                Icons.search,
+                              ),
+                              fillColor: Color(0xFFFAFAFA),
+                              hintStyle: TextStyle(
+                                  color: Color(0xFFd0cece), fontSize: 14),
+                              hintText: "Search Movie By Location",
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    childCount: 1,
+                  ),
+                ),
+                SliverList(
+                  delegate: SliverChildBuilderDelegate(
+                        (BuildContext context, int index) =>
+                        _buildMovieList(state.movieData[index]),
+                    childCount: state.movieData.length,
+                  ),
+                )
+              ],
+
+            );
           } else {
             screenView = Container(
-              width: double.infinity,
+              height:500,
               margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
               padding: const EdgeInsets.only(
                   left: 20, right: 20, top: 20, bottom: 20),
-              decoration: BoxDecoration(
-                border: Border.all(color: Colors.grey),
-                borderRadius: const BorderRadius.only(
-                  topLeft: Radius.circular(20.0),
-                  bottomRight: Radius.circular(5.0),
-                ),
-              ),
-              child: MyText.textBold(text: "Search Movie", fontSize: 14),
+              child: MyText.textBold(text: "No Movie Found ", fontSize: 14),
             );
           }
-          return SafeArea(
-              child: Scaffold(
-                  appBar: AppBar(
-                    title: MyText.textBold(
-                        text: "Search Movie", fontSize: 16),
-                    elevation: 4,
-                    leading: IconButton(
-                      icon: const Icon(Icons.arrow_back),
-                      onPressed: () {},
-                    ),
-                  ),
-                  body: Stack(
-                    children: [
-                      screenView,
-                    ],
-                  )));
+          return Scaffold(
+              appBar: AppBar(
+                centerTitle: true,
+                title: MyText.textBold(text: "Search Movie", fontSize: 16),
+                elevation: 4,
+              ),
+              body: screenView);
         },
       ),
     );
   }
 
-  Widget _buildMovieList(LoadedState state) => ListView.builder(
-        itemCount: state.movieData.length,
-        //  respondedData3['data'].length,
-        shrinkWrap: true,
-        scrollDirection: Axis.vertical,
-        physics: const ScrollPhysics(),
-        itemBuilder: (context, index) => Card(
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
-          elevation: 4.0,
-          margin: const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
-          child: Container(
-            padding: const EdgeInsets.all(10.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                MyText.textRegular(
-                    text: state.movieData[index].productionCompany, fontSize: 14,maxLines: 2),
-                MyText.textRegular(
-                    text: state.movieData[index].distributor, fontSize: 14,maxLines: 2),
-                MyText.textRegular(
-                    text: state.movieData[index].director, fontSize: 14,maxLines: 2),
-                MyText.textRegular(
-                    text: state.movieData[index].actor1, fontSize: 14,maxLines: 2),
-                MyText.textRegular(
-                    text: state.movieData[index].actor2, fontSize: 14,maxLines: 2),
-                MyText.textRegular(
-                    text: state.movieData[index].actor3, fontSize: 14,maxLines: 2),
-                MyText.textRegular(
-                    text: state.movieData[index].locations, fontSize: 14,maxLines: 2),
-
-              ],
-            ),
+  Widget _buildMovieList(MovieResponse movieResponse) => Card(
+        shape:
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
+        elevation: 4.0,
+        margin: const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
+        child: Container(
+          padding: const EdgeInsets.all(10.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              MyText.textRegular(
+                  text: movieResponse.productionCompany,
+                  fontSize: 14,
+                  maxLines: 2),
+              MyText.textRegular(
+                  text: movieResponse.distributor, fontSize: 14, maxLines: 2),
+              MyText.textRegular(
+                  text: movieResponse.director, fontSize: 14, maxLines: 2),
+              MyText.textRegular(
+                  text: movieResponse.actor1, fontSize: 14, maxLines: 2),
+              MyText.textRegular(
+                  text: movieResponse.actor2, fontSize: 14, maxLines: 2),
+              MyText.textRegular(
+                  text: movieResponse.actor3, fontSize: 14, maxLines: 2),
+              MyText.textRegular(
+                  text: movieResponse.locations, fontSize: 14, maxLines: 2),
+            ],
           ),
         ),
       );
