@@ -1,16 +1,22 @@
-# testapp
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Movie App
+This Flutter project is a simple movie app that displays a list of movies fetched from an external API (you'll need to provide your own API endpoint). Users can filter the movie list by title or location.
+Features
+Fetch Movie Data: Retrieves movie information from an API.
+Display Movie List: Presents a list of movies with details like title, release year, actors, etc.
+Filtering: Allows users to search and filter movies by title or location.
+UI Design: Implements a clean and user-friendly interface with cards for each movie.
+Getting Started
+Clone the Repository:https://github.com/mouryaavadhesh/testapp.git
+Install Dependencies: flutter pub get
+Update API Endpoint:
+Open the movie_repo.dart file and replace 'your_api_endpoint' with the actual URL of your movie API.
+Project Structure
+lib/: Contains the main Flutter source code.
+data/: Handles data fetching and parsing.
+movie_repo.dart: Repository for interacting with the movie API.
+domain/: Defines business logic and models.
+models/movie_response.dart: Model class for representing movie data.
+presentation/: Contains UI components and state management.
+screens/: Screens of the app (e.g., movie list screen).
+widgets/: Reusable UI widgets
