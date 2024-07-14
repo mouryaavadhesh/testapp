@@ -33,7 +33,7 @@ class MovieSearchCubit extends AppBloc<MovieSearchState> {
       movieData.addAll(response);
       emit(LoadedState(movieData: response));
     }, onFailed: (data) {
-      emit(LoadedState(movieData: []));
+      emit(LoadedState(movieData: const []));
       Navigator.of(_context).pop();
     });
   }
